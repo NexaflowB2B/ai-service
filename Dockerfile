@@ -16,5 +16,5 @@ COPY . .
 ENV PATH=/root/.local/bin:$PATH
 ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8008
-CMD ["uvicorn", "ai_service.main:app", "--host", "0.0.0.0", "--port", "8008"]
+EXPOSE 8005
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8005"]
