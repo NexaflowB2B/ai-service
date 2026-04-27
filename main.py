@@ -130,7 +130,11 @@ class QueryResponse(BaseModel):
     response: str
 
 
-@app.post("/query", response_model=QueryResponse)
+@app.post(
+    "/query",
+    response_model=QueryResponse,
+    responses={500: {"description": "AI provider or processing error"}},
+)
 def handle_query(request: QueryRequest):
     if not client or not SELECTED_MODEL:
         return QueryResponse(
